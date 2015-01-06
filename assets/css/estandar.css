@@ -1,0 +1,11 @@
+body {
+	background     : url('../img/vertical.jpg') repeat;
+	background-size: 70px;
+}
+
+.caja {
+	border : 2px #000 solid;
+	display: inline-block;
+	height : 350px;
+	width  : 410px;
+}
