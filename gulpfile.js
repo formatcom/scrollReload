@@ -14,6 +14,11 @@ var del         = require('del');
 
 var _PROYECTOJS = 'assets/js/**/*';
 
+//Todas las imagenes tanto tuyas como de dependencias
+var _IMGS = [
+    'assets/img/*'
+];
+
 var _BASE = [
 	'index.html'
 ];
@@ -34,6 +39,11 @@ gulp.task('minify-css', function () {
     .pipe(reload({stream: true, once: true}));
 });
 
+gulp.task('copyImgs', function(){
+    gulp.src(_IMGS)
+    .pipe(gulp.dest('dist/assets/img'))
+    .pipe(reload({stream: true, once: true}));
+});
 
 gulp.task('copyBase', function(){
 	gulp.src(_BASE)
@@ -50,6 +60,7 @@ gulp.task('watch', function() {
     // Cambios principales
     gulp.watch(_PROYECTOJS, ['minify-js']);
     gulp.watch('assets/css/**/*.css', ['minify-css']);
+    gulp.watch(_IMGS,  ['copyImgs']);
     gulp.watch(_BASE,  ['copyBase']);
 });
 
@@ -62,7 +73,7 @@ gulp.task('server', function () {
 
 //Tarea por defecto
 gulp.task('default', ['clean'], function() {
-    gulp.start('copyBase', 'minify-js', 'minify-css', 'server', 'watch');
+    gulp.start('copyImgs', 'copyBase', 'minify-js', 'minify-css', 'server', 'watch');
 });
 
 
