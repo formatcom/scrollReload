@@ -1,0 +1,11 @@
+#log{
+	background: rgba(0,0,0,.7);
+	color     : #FFF;
+	height    : 500px;
+	left      : 0;
+	overflow  : hidden;
+	position  : fixed;
+	top       : 0;
+	width     : 300px;
+	z-index   : 2;
+}
